@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Facebook</title>
+	<link rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>		
+</head>
+<body>
+	<p>Number of Likes : <b id="content_area">Loading...</b></p>
+        <script type="text/javascript">
+            var content_area = $("#content_area");
+            function load_content() {
+                $.get("/getdata", function(data) {
+                    content_area.html(data);
+                    load_content();
+                });
+            }
+            load_content();
+        </script>	
+</body>
+</html>
